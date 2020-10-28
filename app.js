@@ -3,11 +3,9 @@ const session = require('express-session')
 const sessionFileStore = require('session-file-store')
 const app = express()
 const path = require('path')
-const indexRoute = require('./src/routes/index')
 const hbs = require('hbs')
 const indexRoute = require('./src/routes/index')
-const loginRoute = require('./src/routes/login')
-const signupRoute = require('./src/routes/signup')
+const loginupRoute = require('./src/routes/loginup')
 const accountRoute = require('./src/routes/account')
 const newtripRoute = require('./src/routes/newtrip')
 const dbConnect = require('./src/config/db')
@@ -43,12 +41,11 @@ app.use(session({
     secure: process.env.NODE_ENV === 'production',
     maxAge: 1000 * 60 * 60 * 24
   },
-}));
+})); 
 
 
 app.use('/', indexRoute)
-app.use('/login', loginRoute)
-app.use('/signup', signupRoute)
+app.use('/loginup', loginupRoute)
 app.use('/account', accountRoute)
 app.use('/newtrip', newtripRoute)
 
