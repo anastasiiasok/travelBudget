@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./bin/www --ignore sessions",
+    "start": "node ./bin/www",
+    "production": "cross-env NODE_ENV=production node ./bin/www"
   },
   "repository": {
     "type": "git",
