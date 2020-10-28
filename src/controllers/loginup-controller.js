@@ -35,12 +35,6 @@ const signUp = async (req, res) => {
   }
 }
 
-
-
-
-
-
-
 module.exports = {
   renderSignUp,
   renderLogIn,
