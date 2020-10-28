@@ -1,1 +1,20 @@
-1
+<div class="d-flex justify-content-center">
+
+  <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip" id="newtripForm">
+    <p id="newtripTitle">Please enter new trip data</p>
+
+    {{#if error}}
+    <p class="text-danger">{{error}}</p>
+    {{/if}}
+
+    <div class="form-group">
+      <input type="text" placeholder="Enter new trip name" name="newtrip" class="form-control" id="newtripName">
+    </div>
+    <div class="form-group">
+      <input type="text" placeholder="Enter participants" name="participants" class="form-control"
+        id="newTripParticipants" aria-describedby="emailHelp">
+    </div>
+    <button id="createNewtripBtn" type="submit" class="btn btn-primary">Create new trip</button>
+  </form>
+
+</div>
