@@ -5,9 +5,13 @@ const app = express()
 const path = require('path')
 const indexRoute = require('./src/routes/index')
 const hbs = require('hbs')
-const userRoute = require('./src/routes/user')
+const indexRoute = require('./src/routes/index')
+const loginRoute = require('./src/routes/login')
+const signupRoute = require('./src/routes/signup')
+const accountRoute = require('./src/routes/account')
+const newtripRoute = require('./src/routes/newtrip')
 const dbConnect = require('./src/config/db')
-const { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } = require('constants')
+
 
 
 const PORT = process.env.PORT || 3000
@@ -43,7 +47,6 @@ app.use(session({
 
 
 app.use('/', indexRoute)
-app.use('/user', userRoute)
 app.use('/login', loginRoute)
 app.use('/signup', signupRoute)
 app.use('/account', accountRoute)
