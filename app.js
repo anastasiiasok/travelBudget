@@ -8,8 +8,7 @@ const app = express()
 const path = require('path')
 const hbs = require('hbs')
 const indexRoute = require('./src/routes/index')
-const loginRoute = require('./src/routes/login')
-const signupRoute = require('./src/routes/signup')
+const loginupRoute = require('./src/routes/loginup')
 const accountRoute = require('./src/routes/account')
 const newtripRoute = require('./src/routes/newtrip')
 const dbConnect = require('./src/config/db')
@@ -29,6 +28,7 @@ app.use(express.urlencoded({ extended: true }))
 app.set('trust proxy', 1);
 
 const FileStore = sessionFileStore(session) 
+<<<<<<< HEAD
 // app.use(session({
 //   name: app.get('session cookie name'),
 //   secret: process.env.SESSION_SECRET,
@@ -51,15 +51,36 @@ app.use(methodOverride(function (req, res) {
     return method;
   }
 }));
+=======
+app.use(session({
+  name: app.get('session cookie name'),
+  secret: process.env.SESSION_SECRET,
+  store: new FileStore({
+    secret: process.env.SESSION_SECRET,
+  }),
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 1000 * 60 * 60 * 24
+  },
+})); 
+>>>>>>> main
 
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
+<<<<<<< HEAD
 // app.use('/', indexRoute)
 // app.use('/login', loginRoute)
 // app.use('/signup', signupRoute)
 // app.use('/account', accountRoute)
+=======
+app.use('/', indexRoute)
+app.use('/loginup', loginupRoute)
+app.use('/account', accountRoute)
+>>>>>>> main
 app.use('/newtrip', newtripRoute)
 
 app.listen(PORT, () => {
