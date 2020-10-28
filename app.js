@@ -8,7 +8,7 @@ const app = express()
 const path = require('path')
 const hbs = require('hbs')
 const indexRoute = require('./src/routes/index')
-const loginupRoute = require('./src/routes/loginup')
+const usersRoute = require('./src/routes/users')
 const accountRoute = require('./src/routes/account')
 const newtripRoute = require('./src/routes/newtrip')
 const dbConnect = require('./src/config/db')
@@ -44,7 +44,7 @@ const FileStore = sessionFileStore(session)
 
 
 app.use('/', indexRoute)
-app.use('/loginup', loginupRoute)
+app.use('/users', usersRoute)
 app.use('/account', accountRoute)
 app.use('/newtrip', newtripRoute)
 

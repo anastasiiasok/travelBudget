@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./bin/www --ignore sessions",
-    "start": "node ./bin/www",
-    "production": "cross-env NODE_ENV=production node ./bin/www"
+    "dev": "nodemon --ignore .'sessions/' app.js",
+    "start": "node app.js",
+    "production": "cross-env NODE_ENV=production node app.js"
   },
   "repository": {
     "type": "git",
