@@ -3,7 +3,6 @@ const session = require('express-session')
 const sessionFileStore = require('session-file-store')
 const app = express()
 const path = require('path')
-const indexRoute = require('./src/routes/index')
 const hbs = require('hbs')
 const indexRoute = require('./src/routes/index')
 const loginRoute = require('./src/routes/login')
@@ -15,7 +14,7 @@ const dbConnect = require('./src/config/db')
 
 
 const PORT = process.env.PORT || 3000
-dbConnect()
+// dbConnect()
 
 app.set('session cookie name', 'sid')
 app.set('view engine', 'hbs')
