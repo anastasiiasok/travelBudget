@@ -19,37 +19,38 @@ const PORT = process.env.PORT || 3000
 app.set('session cookie name', 'sid')
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'src', 'views'))
-hbs.registerPartials(path.join(__dirname, 'src', 'views', 'partials'))
+// hbs.registerPartials(path.join(__dirname, 'src', 'views', 'partials'))
 app.use(logger('dev'));
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
 
 const FileStore = sessionFileStore(session) 
-app.use(session({
-  name: app.get('session cookie name'),
-  secret: process.env.SESSION_SECRET,
-  store: new FileStore({
-    secret: process.env.SESSION_SECRET,
-  }),
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: process.env.NODE_ENV === 'production',
-    maxAge: 1000 * 60 * 60 * 24
-  },
-})); 
+// app.use(session({
+//   name: app.get('session cookie name'),
+//   secret: process.env.SESSION_SECRET,
+//   store: new FileStore({
+//     secret: process.env.SESSION_SECRET,
+//   }),
+//   resave: false,
+//   saveUninitialized: false,
+//   cookie: {
+//     secure: process.env.NODE_ENV === 'production',
+//     maxAge: 1000 * 60 * 60 * 24
+//   },
+// })); 
 
-app.use(function (req, res, next) {
-  next(createError(404));
-});
 
 app.use('/', indexRoute)
 app.use('/loginup', loginupRoute)
 app.use('/account', accountRoute)
 app.use('/newtrip', newtripRoute)
+
+app.use(function (req, res, next) {
+  res.render('404')
+});
 
 app.listen(PORT, () => {
   console.log('Server has been started on port: ', PORT)
