@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center">
+
+  <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category" id="createCategoryForm">
+    <p id="newtripTitle">Please enter new category data</p>
+
+    {{#if error}}
+    <p class="text-danger">{{error}}</p>
+    {{/if}}
+
+    <div class="form-group">
+      <input type="text" placeholder="Enter category" name="newCategoryName" class="form-control" id="newCategoryName">
+    </div>
+    <div class="form-group">
+      <input type="text" placeholder="Enter full cost" name="fullCost" class="form-control" id="newCategoryCost">
+    </div>
+    <div class="form-group">
+      <input type="text" placeholder="Enter payers" name="payers" class="form-control" id="payers">
+    </div> <br>
+    <div class="form-group">
+      <a>Choose how you prefer to pay:</a>
+    </div> <br>
+    <button id="equallyBtn" type="submit" class="btn btn-primary">Pay equally</button>
+    <input formaction="/newtrip/category/castomize" formmethod="post" type="submit" value="Pay castomize" />
+  </form> <br>
+
+</div>
