@@ -13,6 +13,7 @@ const usersRoute = require('./src/routes/users')
 const accountRoute = require('./src/routes/account')
 const newtripRoute = require('./src/routes/newtrip')
 const dbConnect = require('./src/config/db')
+const userMiddle = require('./src/middleware/user')
 
 const PORT = process.env.PORT || 3000
 dbConnect()
@@ -43,11 +44,11 @@ app.use(session({
   },
 })); 
 
-
+app.use(userMiddle.userName)
 app.use('/', indexRoute)
 app.use('/users', usersRoute)
-app.use('/account', accountRoute)
-app.use('/newtrip', newtripRoute)
+app.use('/account', userMiddle.isAuth, accountRoute)
+app.use('/newtrip', userMiddle.isAuth, newtripRoute)
 
 app.use(function (req, res, next) {
   res.render('404')
