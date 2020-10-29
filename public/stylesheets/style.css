@@ -1,0 +1,25 @@
+body {
+  font-family: 'Lato', sans-serif;
+
+  margin: 0;
+  padding: 0;
+}
+h3 {
+  font-size: 80px;
+  font-weight: bold;
+}
+h4 {
+  width: 500px;
+}
+.nav-wrapper {
+  font-size: 50px;
+}
+
+#titlename {
+  color: #ff6f00;
+  font-weight: bold;
+}
+#image-index {
+  margin-right: 200px;
+  float: right;
+}
