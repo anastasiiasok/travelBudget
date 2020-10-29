@@ -1,7 +1,9 @@
 <div class="d-flex justify-content-center">
 
   <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip" id="newtripForm">
-    <p id="newtripTitle">Please enter new trip data</p>
+    <h3>
+      <p id="newtripTitle">Please enter new trip data</p>
+    </h3>
 
     {{#if error}}
     <p class="text-danger">{{error}}</p>
@@ -9,11 +11,11 @@
 
     <div class="form-group">
       <input type="text" placeholder="Enter new trip name" name="newTripName" class="form-control" id="newtripName">
-    </div>
+    </div> <br />
     <div class="form-group">
       <input type="text" placeholder="Enter full trip cost" name="fullTripCost" class="form-control"
         id="newTripFullCost">
-    </div>
+    </div> <br />
     <button id="createNewtripBtn" type="submit" class="btn btn-primary">Create new trip</button>
   </form>
 

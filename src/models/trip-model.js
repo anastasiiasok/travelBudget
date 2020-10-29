@@ -6,7 +6,10 @@ const tripSchema = new mongoose.Schema({
     required: true,
     type: String
   },
-  cost: Number,
+  cost: {
+    required: true,
+    type: Number
+  },
   categories: Array
 })
 

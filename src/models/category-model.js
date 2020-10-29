@@ -6,8 +6,14 @@ const categorySchema = new mongoose.Schema({
     required: true,
     type: String
   },
-  cost: Number,
-  users: Array
+  cost: {
+    required: true,
+    type: Number
+  },
+  users: {
+    required: true,
+    type: Array
+  }
 })
 
 module.exports = mongoose.model('Category', categorySchema)

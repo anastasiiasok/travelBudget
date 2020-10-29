@@ -3,7 +3,9 @@
 
   <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category/castomize"
     id="castomizeCategoryForm">
-    <p id="newtripTitle">Please enter cost for each payer:</p>
+    <h4>
+      <p id="newtripTitle">Please enter cost for each payer:</p>
+    </h4>
 
     {{#if error}}
     <p class="text-danger">{{error}}</p>
@@ -13,9 +15,9 @@
     <div class="form-group">
       <input type="text" placeholder="Enter cost for {{this}}" name="castomizeCategory" class="form-control"
         id="castomizeCategory">
-    </div>
+    </div> <br />
     {{/each}}
-
+    <br />
     <button id="castomizeCategoryBtn" type="submit" class="btn btn-primary">Create category</button>
   </form>
 
