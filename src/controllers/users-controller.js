@@ -51,8 +51,50 @@ console.log(serializeUser(newUser))
 
 }
 
+const signIn = async (req, res) => {
+  const { email, password } = req.body
+
+
+  if (email && password) {
+    try {
+      const user = await User.findOne({ email }).lean()
+      if (user) {
+        const validPass = await bcrypt.compare(password, user.password)
+        if (validPassword) {
+          req.session.user = serializeUser(user)
+          res.render('account')
+        } else {
+          res.redirect(401, '/signin')
+        }
+      } else {
+        res.redirect(401, '/signin')
+      }
+
+
+
+    } catch (e) {
+      res.redirect('/users/signin')
+    }
+
+  } else {
+    res.render('login', { error: 'Отсутствует Email или Pass' })
+  }
+}
+
+
+
+const logout = (req, res) => {
+  req.session.destroy(function (err) {
+    if (err) throw new Error(err)
+    res.clearCookie(req.app.get('session cookie name'));
+    return res.redirect('/');
+  })
+}
+
 module.exports = {
   renderSignUp,
   renderLogIn,
   signUp,
+  signIn,
+  logout
 }

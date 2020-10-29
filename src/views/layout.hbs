@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Budget</title>
+  <script defer src="/js/application.js"></script>
 </head>
 
 <body>
@@ -14,9 +15,15 @@
     <div>
       <nav>
         <ul>
+          {{#if userName}}
+          <li><a href="/">Home</a></li>
+          <li><a href="/account">{{userName}}</a></li>
+          <li><a href="/users/logout">Log Out</a></li>
+          {{else}}
           <li><a href="/">Home</a></li>
           <li><a href="/users/login">Log in</a></li>
           <li><a href="/users/signup">Sign up</a></li>
+          {{/if}}
         </ul>
       </nav>
     </div>
