@@ -1,0 +1,12 @@
+<h2>Category "{{name}}" successfully saved!</h2> <br />
+<div class="d-flex justify-content-center">
+  <a href="/newtrip/category/editCategory" class="payers">Edit this data</a>
+  <a href="/newtrip/category" class="payers">Add category</a> <br />
+</div> <br />
+
+<h3>
+  {{#each payers}}
+  <span class="entry-date block font-3-4 c-lt-gray">{{this}}, </span>
+  {{/each}}
+  <a> you spent {{payerCost}} USD </a> <br />
+</h3>

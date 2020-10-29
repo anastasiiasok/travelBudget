@@ -1,16 +1,18 @@
+require('dotenv').config()
 const express = require('express')
-const session = require('express-session')
+const createError = require('http-errors');
 const sessionFileStore = require('session-file-store')
+const logger = require('morgan');
+const methodOverride = require('method-override')
+const session = require('express-session')
 const app = express()
 const path = require('path')
 const hbs = require('hbs')
 const indexRoute = require('./src/routes/index')
-const loginupRoute = require('./src/routes/loginup')
+const usersRoute = require('./src/routes/users')
 const accountRoute = require('./src/routes/account')
 const newtripRoute = require('./src/routes/newtrip')
 const dbConnect = require('./src/config/db')
-
-
 
 const PORT = process.env.PORT || 3000
 dbConnect()
@@ -18,15 +20,13 @@ dbConnect()
 app.set('session cookie name', 'sid')
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'src', 'views'))
-hbs.registerPartials(path.join(__dirname, 'src', 'views', 'partials'))
-
+// hbs.registerPartials(path.join(__dirname, 'src', 'views', 'partials'))
+app.use(logger('dev'));
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-
-app.set('trust proxy', 1);
-
+// app.set('trust proxy', 1);
 
 const FileStore = sessionFileStore(session) 
 app.use(session({
@@ -45,13 +45,16 @@ app.use(session({
 
 
 app.use('/', indexRoute)
-app.use('/loginup', loginupRoute)
+app.use('/users', usersRoute)
 app.use('/account', accountRoute)
 app.use('/newtrip', newtripRoute)
 
-
-
+app.use(function (req, res, next) {
+  res.render('404')
+});
 
 app.listen(PORT, () => {
   console.log('Server has been started on port: ', PORT)
 })
+
+module.exports = app;
