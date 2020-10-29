@@ -4,12 +4,10 @@
   <a href="/newtrip/category" class="payers">Add category</a> <br />
 </div> <br />
 
-<h3>
-  {{#each payers}}
-  <span class="entry-date block font-3-4 c-lt-gray">{{this}}, </span>
-  {{/each}}
 
-  {{#each castomCostArr}}
-  <a> you spent {{this}} USD </a> <br />
-  {{/each}}
+{{#each castomCostArr}}
+<h3>
+  <span class="entry-date block font-3-4 c-lt-gray">{{this.name}}, </span>
 </h3>
+<a> you spent {{this.cost}} USD </a> <br />
+{{/each}}
