@@ -5,6 +5,7 @@ const salt = process.env.saltRounds || 10
 
 const serializeUser = (user) => {
   return {
+    name: user.name,
     id: user.id,
     email: user.email
   }
@@ -59,21 +60,21 @@ const signIn = async (req, res) => {
     try {
       const user = await User.findOne({ email }).lean()
       if (user) {
-        const validPass = await bcrypt.compare(password, user.password)
+        const validPassword = await bcrypt.compare(password, user.password)
         if (validPassword) {
           req.session.user = serializeUser(user)
-          res.render('account')
+          res.redirect('/account')
         } else {
-          res.redirect(401, '/signin')
+          res.redirect(401, '/users/login')
         }
       } else {
-        res.redirect(401, '/signin')
+        res.redirect(401, '/users/login')
       }
 
 
 
     } catch (e) {
-      res.redirect('/users/signin')
+      res.redirect('/users/login')
     }
 
   } else {

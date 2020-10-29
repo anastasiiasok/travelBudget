@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 const usersController = require('../controllers/users-controller')
-const userMiddle = require('../middleware/user')
+
 
 router
 .route('/signup')
@@ -11,8 +11,8 @@ router
 
 router
   .route('/login')
-  .get(userMiddle.isAuth, usersController.renderLogIn)
-  .post(userMiddle.userName, usersController.signIn)
+  .get(usersController.renderLogIn)
+  .post(usersController.signIn)
   router
   .route('/logout')
   .get(usersController.logout)

@@ -6,7 +6,7 @@ const isAuth = (req,res,next) =>{
 const userName = (req,res,next)=>{
   if (req.session.user){
     res.locals.userName = req.session.user.name
-
+console.log(res.locals.userName)
   }
     
  next()
