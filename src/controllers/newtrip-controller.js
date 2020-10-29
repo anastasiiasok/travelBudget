@@ -52,7 +52,7 @@ const createNewCategory = async (req, res) => {
       const newCategory = new Category({
         name,
         cost,
-        payerCost
+        users: payerCostArr
       })
       
       await newCategory.save()
@@ -76,23 +76,10 @@ const castomizeCategory = async (req, res) => {
   let name = req.body.newCategoryName;
   let cost = req.body.fullCost;
   let payers = req.body.payers.split(',');
-  // let payerCost = Math.floor((cost / payers.length) * 100) / 100
-  // let payerCostArr = []
-  // for (let i = 0; i < payers.length; i++) {
-  //   payerCostArr.push({ name: payers[i], cost: payerCost })
-  // }
-  // console.log(payerCostArr);
 
   if (name && cost && payers) {
     try {
-
-      // const newCategory = new Category({
-      //   name,
-      //   cost,
-      //   payerCost
-      // })
       
-      // await newCategory.save()
       res.render('castomizeCategory', { name, payers })
 
     } catch (e) {
