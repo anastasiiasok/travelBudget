@@ -73,15 +73,15 @@ const renderCastomizeCategory = (req, res) => {
 }
 
 const castomizeCategory = async (req, res) => {
-  let name = req.body.newCategoryName;
-  let cost = req.body.fullCost;
+  let categoryName = req.body.newCategoryName;
+  let fullCost = req.body.fullCost;
   let payers = req.body.payers.split(',');
   res.locals.payers = payers
 
-  if (name && cost && payers) {
+  if (categoryName && fullCost && payers) {
     try {
       
-      res.render('castomizeCategory', { name, payers })
+      res.render('castomizeCategory', { categoryName, payers, fullCost })
 
     } catch (e) {
       console.log(e);
@@ -93,24 +93,26 @@ const castomizeCategory = async (req, res) => {
 }
 
 const renderSavedCastomizeCategory = async (req, res) => {
-  let categoryName = req.body.newCategoryName;
+  let categoryName = req.body.categoryName;
   let castomCost = req.body.castomizeCategoryCost;
-  let payers = res.locals.payers
+  let payers = req.body.payer;
   console.log(payers);
-  res.render('savedCastomizeCategory', {categoryName, castomCost/* , payers */})
+  res.render('savedCastomizeCategory', {categoryName, castomCost, payers})
 }
 
 const saveCastomizeCategory = async (req, res) => {
-  let categoryName = req.body.category;
+  let categoryName = req.body.categoryName;
   let castomCost = req.body.castomizeCategoryCost;
   let payers = req.body.payer;
+  let fullCost = req.body.fullCost;
 
   console.log('payers:',payers);
+  console.log('fullCost:', fullCost);
+  
   let castomCostArr = [];
-  let cost = req.body.fullCost
 
   for (let i = 0; i < payers.length; i++) {
-    castomCostArr.push({ name: payers[i], cost: castomCost })
+    castomCostArr.push({ name: payers[i], cost: castomCost[i] })
   }
   console.log('categoryName:', categoryName);
   
@@ -118,7 +120,7 @@ const saveCastomizeCategory = async (req, res) => {
     try {
       const newCategory = new Category({
         name: categoryName,
-        cost,
+        cost: fullCost,
         users: castomCostArr
       })
 
