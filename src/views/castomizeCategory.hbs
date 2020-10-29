@@ -1,7 +1,7 @@
 <h2>Category: {{name}}</h2>
 <div class="d-flex justify-content-center">
 
-  <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category/castomize"
+  <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category/castomize/save"
     id="castomizeCategoryForm">
     <h4>
       <p id="newtripTitle">Please enter cost for each payer:</p>
@@ -13,12 +13,14 @@
 
     {{#each payers}}
     <div class="form-group">
-      <input type="text" placeholder="Enter cost for {{this}}" name="castomizeCategory" class="form-control"
+      <input type="text" placeholder="Enter cost for {{this}}" name="castomizeCategoryCost" class="form-control"
         id="castomizeCategory">
+      <input type="hidden" name="payer" value="{{this}}">
+      <input type="hidden" name="category" value="{{name}}">
     </div> <br />
     {{/each}}
     <br />
-    <button id="castomizeCategoryBtn" type="submit" class="btn btn-primary">Create category</button>
+    <button id="castomizeCategoryBtn" type="submit" class="btn btn-primary">Save category</button>
   </form>
 
 </div>
