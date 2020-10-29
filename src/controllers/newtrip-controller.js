@@ -20,8 +20,8 @@ const createNewTrip = async (req, res) => {
       })
       
       await newTrip.save()
-
       res.redirect('/newtrip/category')
+
     } catch (e) {
       console.log(e);
       res.render('newtrip', { error: 'This trip already exist or incorrect data!' })
@@ -76,6 +76,7 @@ const castomizeCategory = async (req, res) => {
   let name = req.body.newCategoryName;
   let cost = req.body.fullCost;
   let payers = req.body.payers.split(',');
+  res.locals.payers = payers
 
   if (name && cost && payers) {
     try {
@@ -91,11 +92,57 @@ const castomizeCategory = async (req, res) => {
 }
 }
 
+const renderSavedCastomizeCategory = async (req, res) => {
+  let categoryName = req.body.newCategoryName;
+  let castomCost = req.body.castomizeCategoryCost;
+  let payers = res.locals.payers
+  console.log(payers);
+  res.render('savedCastomizeCategory', {categoryName, castomCost/* , payers */})
+}
+
+const saveCastomizeCategory = async (req, res) => {
+  let categoryName = req.body.category;
+  let castomCost = req.body.castomizeCategoryCost;
+  let payers = req.body.payer;
+
+  console.log('payers:',payers);
+  let castomCostArr = [];
+  let cost = req.body.fullCost
+
+  for (let i = 0; i < payers.length; i++) {
+    castomCostArr.push({ name: payers[i], cost: castomCost })
+  }
+  console.log('categoryName:', categoryName);
+  
+  if (castomCost) {
+    try {
+      const newCategory = new Category({
+        name: categoryName,
+        cost,
+        users: castomCostArr
+      })
+
+      console.log('newCategory:',newCategory);
+
+      await newCategory.save()
+      res.render('savedCastomizeCategory', {categoryName, castomCostArr, payers})
+      
+    } catch (e) {
+      console.log(e);
+      res.render('savedCastomizeCategory', { error: 'Incorrect data!' })
+    }
+  } else {
+    res.render('savedCastomizeCategory', {error: 'Not all fields are filled!'})
+}
+}
+
 module.exports = {
   renderNewtrip,
   renderCreateCategory,
   createNewTrip,
   createNewCategory,
   renderCastomizeCategory,
-  castomizeCategory
+  castomizeCategory,
+  renderSavedCastomizeCategory,
+  saveCastomizeCategory
 }
