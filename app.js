@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const createError = require('http-errors');
 const sessionFileStore = require('session-file-store')
@@ -14,7 +15,7 @@ const newtripRoute = require('./src/routes/newtrip')
 const dbConnect = require('./src/config/db')
 
 const PORT = process.env.PORT || 3000
-// dbConnect()
+dbConnect()
 
 app.set('session cookie name', 'sid')
 app.set('view engine', 'hbs')
