@@ -7,13 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Budget</title>
   <script defer src="/js/application.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
   <header>
     <div>
-      <nav>
+      {{!-- <nav>
         <ul>
           {{#if userName}}
           <li><a href="/">Home</a></li>
@@ -25,7 +29,26 @@
           <li><a href="/users/signup">Sign up</a></li>
           {{/if}}
         </ul>
+      </nav> --}}
+      <nav>
+        <div class="nav-wrapper green lighten-3">
+
+          <a href="/" class="brand-logo" id="titlename">Travel Budget</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down ul-index">
+            {{#if userName}}
+            <li><a href="/">Home</a></li>
+            <li><a href="/account">{{userName}}</a></li>
+            <li><a href="/users/logout">Log Out</a></li>
+            {{else}}
+            <li><a href="/">Home</a></li>
+            <li><a href="/users/login">Log in</a></li>
+            <li><a href="/users/signup">Sign up</a></li>
+            {{/if}}
+          </ul>
+        </div>
       </nav>
+
+
     </div>
   </header>
   {{{body}}}
