@@ -1,8 +1,14 @@
+<div class="container"> 
+<div class="row"> 
+
+<div class="col-s-12"> 
+
+
 <div class="d-flex justify-content-center">
 
   <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip" id="newtripForm">
     <h3>
-      <p id="newtripTitle">Please enter new trip data</p>
+      <p id="newtripTitle" class="useraccount giveitaname">Give it a name!</p>
     </h3>
 
     {{#if error}}
@@ -16,7 +22,12 @@
       <input type="text" placeholder="Enter full trip cost" name="fullTripCost" class="form-control"
         id="newTripFullCost">
     </div> <br />
-    <button id="createNewtripBtn" type="submit" class="btn btn-primary">Create new trip</button>
+    <button id="createNewtripBtn" type="submit" class="btn btn-primary waves-effect waves-light btn-large nav-wrapper green lighten-3">Create new trip</button>
   </form>
 
 </div>
+
+</div>
+</div>
+
+ </div>

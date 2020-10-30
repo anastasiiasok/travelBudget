@@ -1,39 +1,37 @@
-<div class="container">
-  <div class="row">
+<div class="container"> 
+<div class="row"> 
 
-    <div class="col s12">
+<div class="col-s-12"> 
 
-      <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category"
-        id="createCategoryForm">
-        <div class="row">
-          <div class="card-panel teal lighten-2">Please enter new category data</div>
-        </div>
-    </div>
+<div class="d-flex justify-content-center">
+
+  <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category" id="createCategoryForm">
+    <p id="newtripTitle" class="useraccount giveitaname">Start your calculation here:</p>
 
     {{#if error}}
     <p class="text-danger">{{error}}</p>
     {{/if}}
 
     <div class="form-group">
-      <input type="text" placeholder="Enter category" name="newCategoryName" class="form-control" id="newCategoryName">
+      <input type="text" placeholder="Name your trip category" name="newCategoryName" class="form-control" id="newCategoryName">
     </div> <br />
     <div class="form-group">
-      <input type="number" placeholder="Enter full cost" name="fullCost" class="form-control" id="newCategoryCost">
+      <input type="number" placeholder="Enter your full budget" name="fullCost" class="form-control" id="newCategoryCost">
     </div> <br />
     <div class="form-group">
-      <input type="text" placeholder="Enter payers" name="payers" class="form-control" id="payers">
+      <input type="text" placeholder="Enter people name's in your trip" name="payers" class="form-control" id="payers">
     </div> <br>
-    <div class="row">
-      <div class="card-panel teal lighten-2">Choose below how you prefer to pay</div>
-    </div>
-    {{!-- <div class="form-group">
-      <a>Choose how you prefer to pay:</a>
-    </div> <br> --}}
-    <button id="equallyBtn" type="submit" class="btn btn-primary">Pay equally</button>
-    <button id="castomBtn" formaction="/newtrip/category/castomize" formmethod="post" class="btn btn-primary"
-      type="submit" value="Pay castomize">Pay castomize</button>
-    </form> <br>
+    <div class="form-group">
+      <a class="useraccount giveitaname">Choose how would you like to split:</a>
+    </div> <br>
+    <button id="equallyBtn" type="submit" class="btn btn-primary">Split Even</button>
 
-  </div>
+    <button formaction="/newtrip/category/castomize" formmethod="post" type="submit" value="Pay castomize" class="btn btn-primary" >Custom split </button>
+  </form> <br>
+
+</div>
+
 </div>
 </div>
+
+ </div>
