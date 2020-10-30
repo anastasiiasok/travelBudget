@@ -1,10 +1,10 @@
-// const express = require('express');
-// const router = express.Router();
-// const mailController = require('../controllers/mail-controller')
+const express = require('express');
+const router = express.Router();
+const mailController = require('../controllers/mail-controller')
 
-// router
-//   .route('/')
-//   .get(mailController.renderSendMailForm)
-//   .post(mailController.sendMail)
+router
+  .route('/')
+  .get(mailController.renderSendMailForm)
+  .post(mailController.sendMail)
 
-// module.exports = router
+module.exports = router

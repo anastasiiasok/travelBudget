@@ -43,9 +43,17 @@ const findTripById = async (req, res) => {
     userSpent = 0;
   }
 
+  let maxSum = 0;
+  for (let i = 0; i < resulCostArr.length; i++) {
+    maxSum += resulCostArr[i].cost
+  }
+  let maxSumObj = { name: 'All ', cost: maxSum }
+  resulCostArr.push(maxSumObj)
+  
+  console.log('maxSumObj.cost >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', maxSumObj.cost);
   console.log('resulCostArr >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', resulCostArr);
     
-  res.render('summary', { trip, allCategories, resultNames, resulCostArr });
+  res.render('summary', { trip, allCategories, resultNames, resulCostArr, maxSumObj });
 }
 
 const renderNewtrip = (req, res) => {
