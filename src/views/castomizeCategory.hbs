@@ -1,10 +1,15 @@
-<h2>Category: {{categoryName}}, Full cost: {{fullCost}}</h2>
+<div class="container"> 
+<div class="row"> 
+
+<div class="col-s-12"> 
+
+<h2 class="useraccount giveitaname">Category: {{categoryName}}, <br>Total Budget: $ {{fullCost}}</h2>
 <div class="d-flex justify-content-center">
 
   <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category/castomize/save"
     id="castomizeCategoryForm">
     <h4>
-      <p id="newtripTitle">Please enter cost for each payer:</p>
+      <p id="newtripTitle" class="giveitaname useraccount">Please enter amount for each payer:</p>
     </h4>
 
     {{#if error}}
@@ -26,3 +31,9 @@
   </form>
 
 </div>
+
+
+</div>
+</div>
+
+ </div>

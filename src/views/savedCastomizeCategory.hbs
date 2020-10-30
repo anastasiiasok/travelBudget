@@ -1,13 +1,25 @@
-<h2>Category "{{categoryName}}" successfully saved!</h2> <br />
+<div class="container"> 
+<div class="row"> 
+
+<div class="col-s-12"> 
+
+
+<h2 class="useraccount giveitaname">Category {{name}} successfully saved!</h2> <br />
 <div class="d-flex justify-content-center">
-  <a href="/newtrip/category/editCategory" class="payers">Edit this data</a>
-  <a href="/newtrip/category" class="payers">Add category</a> <br />
+  <a href="/newtrip/category/editCategory" class="payers useraccount giveitaname">Edit this data</a> <br>
+  <a href="/newtrip/category" class="payers useraccount giveitaname">Add category</a> <br />
 </div> <br />
 
 
 {{#each castomCostArr}}
 <h3>
   <a> {{this.name}}, </a>
-  <a> you spent {{this.cost}} USD </a>
+  <a> you spent ${{this.cost}}.00 USD </a>
 </h3>
 {{/each}}
+
+
+</div>
+</div>
+
+ </div>
