@@ -1,36 +1,85 @@
+<div class="container">
 
-<h1>Here is your {{trip.name}} trip summary 👻</h1>
-{{!-- <button> <a href="#" > Send to all users</a> </button> --}}
+  <h2>
+    <div class="row">
+      <div class="card-panel teal lighten-2">Here is your {{trip.name}} trip summary</div>
+    </div>
+  </h2>
+
+  <div class="row">
+
+    <div class="col s12">
+      <h3>Here's what you did on this journey:</h3>
+    </div>
+  </div>
+
+  {{#each allCategories}}
+  <div class="row">
+
+    <div class="col s12">
+      <h4>
+        <li id="list" class="list-item col-1-2">
+          <a class="big fancy-text light-link">{{this.name}}</a> <br />
+        </li>
+      </h4>
+    </div>
+  </div>
+
+  {{/each}}
+  <div class="row">
+
+    <div class="col s12">
+      </br>
+      <h3>Your friends on this journey were:</h3> </br>
+    </div>
+  </div>
+
+  {{#each resultNames}}
+  <div class="row">
+
+    <div class="col s12">
+      <h4>
+        <li id="list" class="list-item col-1-2">
+          <a class="big fancy-text light-link">{{this}}</a> <br />
+        </li>
+      </h4>
+    </div>
+  </div>
+  {{/each}}
+  <div class="row">
+
+    <div class="col s12">
+      </br>
+      <h3>This is how much money you and your friends spent during the whole trip:</h3> </br>
+    </div>
+  </div>
+
+  {{#each resulCostArr}}
+  <div class="row">
+
+    <div class="col s12">
+      <h4>
+        <div class="row">
+          <li id="list" class="list-item col-1-2">
+            <a>{{this.name}} spent {{this.cost}} USD</a>
+          </li>
+          <progress value="{{this.cost}}" max="{{../maxSumObj.cost}}">
+          </progress>
+        </div>
+      </h4>
+    </div>
+  </div>
+  {{/each}}
 
 
-<h2>Here's what you did on this journey:</h2>
+  <form name="mailForm" method="POST" action="/mail" id="mailForm">
+    <button id="sendMailBtn" formaction="/mail" formmethod="post" class="btn btn-primary" type="submit"
+      value="Pay castomize">Send report by email</button>
+  </form>
 
-{{#each allCategories}}
-<h4>
-  <li id="list" class="list-item col-1-2">
-    <a class="big fancy-text light-link">{{this.name}}</a> <br />
-  </li>
-</h4>
-{{/each}}
+  <br />
 
-</br>
-<h2>Your friends on this journey were:</h2> </br>
+</div>
 
-{{#each resultNames}}
-<h4>
-  <li id="list" class="list-item col-1-2">
-    <a class="big fancy-text light-link">{{this}}</a> <br />
-  </li>
-</h4>
-{{/each}}
-
-</br>
-<h2>This is how much money you and your friends spent during the whole trip:</h2> </br>
-
-{{#each resulCostArr}}
-<h4>
-  <li id="list" class="list-item col-1-2">
-    <a class="big fancy-text light-link">{{this.name}} spent {{this.cost}}</a> <br />
-  </li>
-</h4>
-{{/each}}
+<br />
+<br />

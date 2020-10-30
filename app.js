@@ -55,6 +55,7 @@ app.use('/', indexRoute)
 app.use('/users', usersRoute)
 app.use('/account', userMiddle.isAuth, accountRoute)
 app.use('/newtrip', userMiddle.isAuth, newtripRoute)
+app.use('/mail', mailRoute)
 
 app.use(function (req, res, next) {
   res.render('404')

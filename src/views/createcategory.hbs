@@ -1,7 +1,14 @@
-<div class="d-flex justify-content-center">
+<div class="container">
+  <div class="row">
 
-  <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category" id="createCategoryForm">
-    <p id="newtripTitle">Please enter new category data</p>
+    <div class="col s12">
+
+      <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category"
+        id="createCategoryForm">
+        <div class="row">
+          <div class="card-panel teal lighten-2">Please enter new category data</div>
+        </div>
+    </div>
 
     {{#if error}}
     <p class="text-danger">{{error}}</p>
@@ -16,11 +23,17 @@
     <div class="form-group">
       <input type="text" placeholder="Enter payers" name="payers" class="form-control" id="payers">
     </div> <br>
-    <div class="form-group">
+    <div class="row">
+      <div class="card-panel teal lighten-2">Choose below how you prefer to pay</div>
+    </div>
+    {{!-- <div class="form-group">
       <a>Choose how you prefer to pay:</a>
-    </div> <br>
+    </div> <br> --}}
     <button id="equallyBtn" type="submit" class="btn btn-primary">Pay equally</button>
-    <input formaction="/newtrip/category/castomize" formmethod="post" type="submit" value="Pay castomize" />
-  </form> <br>
+    <button id="castomBtn" formaction="/newtrip/category/castomize" formmethod="post" class="btn btn-primary"
+      type="submit" value="Pay castomize">Pay castomize</button>
+    </form> <br>
 
+  </div>
+</div>
 </div>
