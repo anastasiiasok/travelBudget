@@ -1,6 +1,53 @@
 const Trip = require('../models/trip-model')
 const Category = require('../models/category-model')
 
+const renderTripReport = (req, res) => {
+  res.render('summary')
+}
+
+const allTrips = async (req, res) => {
+  const allTrips = await Trip.find();
+  res.render('allTrips', {allTrips})
+}
+
+const findTripById = async (req, res) => {
+  let trip = await Trip.findById(req.params.id);
+  let allCategories = await Category.find();
+  let users = []
+  for (let i = 0; i < allCategories.length; i++) {
+    users.push(allCategories[i].users)
+  }
+
+  let names = []
+  let usersArr = users.flat()
+
+  console.log('usersArr >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', usersArr);
+
+  for (let i = 0; i < usersArr.length; i++) {
+    names.push(usersArr[i].name)
+  }
+  
+  resultNames = [...new Set(names)]
+  console.log('resultNames >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', resultNames);
+  
+  let userSpent = 0;
+  let resulCostArr = [];
+
+  for (let i = 0; i < resultNames.length; i++) {
+    for (let j = 0; j < usersArr.length; j++) {
+      if (usersArr[j].name === resultNames[i]) {
+          userSpent += Number(usersArr[j].cost)
+      }
+    }
+    resulCostArr.push({ name: resultNames[i], cost: userSpent })
+    userSpent = 0;
+  }
+
+  console.log('resulCostArr >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', resulCostArr);
+    
+  res.render('summary', { trip, allCategories, resultNames, resulCostArr });
+}
+
 const renderNewtrip = (req, res) => {
   res.render('newtrip')
 }
@@ -96,7 +143,6 @@ const renderSavedCastomizeCategory = async (req, res) => {
   let categoryName = req.body.categoryName;
   let castomCost = req.body.castomizeCategoryCost;
   let payers = req.body.payer;
-  console.log(payers);
   res.render('savedCastomizeCategory', {categoryName, castomCost, payers})
 }
 
@@ -106,15 +152,11 @@ const saveCastomizeCategory = async (req, res) => {
   let payers = req.body.payer;
   let fullCost = req.body.fullCost;
 
-  console.log('payers:',payers);
-  console.log('fullCost:', fullCost);
-  
   let castomCostArr = [];
 
   for (let i = 0; i < payers.length; i++) {
     castomCostArr.push({ name: payers[i], cost: castomCost[i] })
   }
-  console.log('categoryName:', categoryName);
   
   if (castomCost) {
     try {
@@ -123,8 +165,6 @@ const saveCastomizeCategory = async (req, res) => {
         cost: fullCost,
         users: castomCostArr
       })
-
-      console.log('newCategory:',newCategory);
 
       await newCategory.save()
       res.render('savedCastomizeCategory', {categoryName, castomCostArr, payers})
@@ -146,5 +186,8 @@ module.exports = {
   renderCastomizeCategory,
   castomizeCategory,
   renderSavedCastomizeCategory,
-  saveCastomizeCategory
+  saveCastomizeCategory,
+  renderTripReport,
+  allTrips,
+  findTripById
 }

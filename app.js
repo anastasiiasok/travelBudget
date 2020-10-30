@@ -14,6 +14,8 @@ const accountRoute = require('./src/routes/account')
 const newtripRoute = require('./src/routes/newtrip')
 const dbConnect = require('./src/config/db')
 const userMiddle = require('./src/middleware/user')
+const mailRoute = require('./src/routes/mail')
+const fs = require('fs')
 
 const PORT = process.env.PORT || 3000
 dbConnect()
@@ -21,7 +23,11 @@ dbConnect()
 app.set('session cookie name', 'sid')
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'src', 'views'))
-// hbs.registerPartials(path.join(__dirname, 'src', 'views', 'partials'))
+hbs.registerPartials(path.join(__dirname, 'src', 'views', 'partials'))
+hbs.registerHelper('htmlTemplate', (name) => {
+  const template = fs.readFileSync(`./src/views/${name}.hbs`, 'utf8')
+  return template;
+})
 app.use(logger('dev'));
 app.use(express.static('public'))
 app.use(express.json())

@@ -21,5 +21,17 @@ router
   .route('/category/castomize/save')
   .get(newTripController.renderSavedCastomizeCategory)
   .post(newTripController.saveCastomizeCategory)
+
+router
+  .route('/report')
+  .get(newTripController.renderTripReport)
+
+router
+  .route('/allTrips')
+  .get(newTripController.allTrips)
+
+router
+  .route('/:id')
+  .get(newTripController.findTripById)
   
 module.exports = router
