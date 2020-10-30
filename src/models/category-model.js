@@ -13,7 +13,8 @@ const categorySchema = new mongoose.Schema({
   users: {
     required: true,
     type: Array
-  }
+  },
+  trip: { type: mongoose.Schema.Types.ObjectId, ref: 'Trip' },
 })
 
 module.exports = mongoose.model('Category', categorySchema)

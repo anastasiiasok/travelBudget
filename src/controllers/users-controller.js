@@ -40,7 +40,7 @@ if (name && email && password) {
       req.session.user = serializeUser(newUser)
 console.log(serializeUser(newUser))
      
-      res.render('account')
+      res.redirect('/account')
     } 
    else {
     res.render('signup', { error: 'Wrong Email or Password' })

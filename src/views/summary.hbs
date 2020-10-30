@@ -1,8 +1,34 @@
-<h1>Here is your summary:</h1>
- <button> <a href="#" > Send to all users</a> </button>
+<h1>Here is your {{trip.name}} trip summary 👻</h1>
+{{!-- <button> <a href="#" > Send to all users</a> </button> --}}
 
-{{trip.name}}
+<h2>Here's what you did on this journey:</h2>
 
+{{#each allCategories}}
+<h4>
+  <li id="list" class="list-item col-1-2">
+    <a class="big fancy-text light-link">{{this.name}}</a> <br />
+  </li>
+</h4>
+{{/each}}
 
-{{.name}}
-{{category.name}}
+</br>
+<h2>Your friends on this journey were:</h2> </br>
+
+{{#each resultNames}}
+<h4>
+  <li id="list" class="list-item col-1-2">
+    <a class="big fancy-text light-link">{{this}}</a> <br />
+  </li>
+</h4>
+{{/each}}
+
+</br>
+<h2>This is how much money you and your friends spent during the whole trip:</h2> </br>
+
+{{#each resulCostArr}}
+<h4>
+  <li id="list" class="list-item col-1-2">
+    <a class="big fancy-text light-link">{{this.name}} spent {{this.cost}}</a> <br />
+  </li>
+</h4>
+{{/each}}
