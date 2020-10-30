@@ -2,14 +2,14 @@
 
   <h2>
     <div class="row">
-      <div class="card-panel teal lighten-2">Here is your {{trip.name}} trip summary</div>
+      <div class="card-panel green lighten-3">Here is your {{trip.name}} trip summary</div>
     </div>
   </h2>
 
   <div class="row">
 
     <div class="col s12">
-      <h3>Here's what you did on this journey:</h3>
+      <h3 class="useraccount">Here's what you did on this journey:</h3>
     </div>
   </div>
 
@@ -18,9 +18,7 @@
 
     <div class="col s12">
       <h4>
-        <li id="list" class="list-item col-1-2">
-          <a class="big fancy-text light-link">{{this.name}}</a> <br />
-        </li>
+        <a class="big fancy-text light-link">{{this.name}}</a> <br />
       </h4>
     </div>
   </div>
@@ -30,7 +28,7 @@
 
     <div class="col s12">
       </br>
-      <h3>Your friends on this journey were:</h3> </br>
+      <h3 class="useraccount">Your friends on this journey were:</h3> </br>
     </div>
   </div>
 
@@ -39,9 +37,7 @@
 
     <div class="col s12">
       <h4>
-        <li id="list" class="list-item col-1-2">
-          <a class="big fancy-text light-link">{{this}}</a> <br />
-        </li>
+        <a class="big fancy-text light-link">{{this}}</a> <br />
       </h4>
     </div>
   </div>
@@ -50,7 +46,7 @@
 
     <div class="col s12">
       </br>
-      <h3>This is how much money you and your friends spent during the whole trip:</h3> </br>
+      <h3 class="useraccount">This is how much money you and your friends spent during the whole trip:</h3> </br>
     </div>
   </div>
 
@@ -60,9 +56,7 @@
     <div class="col s12">
       <h4>
         <div class="row">
-          <li id="list" class="list-item col-1-2">
-            <a>{{this.name}} spent {{this.cost}} USD</a>
-          </li>
+          <a>{{this.name}} spent {{this.cost}} USD</a>
           <progress value="{{this.cost}}" max="{{../maxSumObj.cost}}">
           </progress>
         </div>
@@ -73,8 +67,9 @@
 
 
   <form name="mailForm" method="POST" action="/mail" id="mailForm">
-    <button id="sendMailBtn" formaction="/mail" formmethod="post" class="btn btn-primary" type="submit"
-      value="Pay castomize">Send report by email</button>
+    <button id="sendMailBtn" formaction="/mail" formmethod="post"
+      class="waves-effect waves-light btn-large nav-wrapper green lighten-3" type="submit" value="Pay castomize">Send
+      report by email</button>
   </form>
 
   <br />
