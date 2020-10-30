@@ -1,34 +1,30 @@
-<div class="container"> 
-<div class="row"> 
+<div class="container">
+  <div class="row">
 
-<div class="col-s-12">  
+    <div class="col-s-12">
 
-<p> <a class="useraccount" href="/account">{{userName}}'s Account</a></p>
-
-
-<p class="splitbills"> Split bills.
-We tell you who owes whom and how to settle debts in groups
-Click on New Trip or view all trips</p>
+      <p class="interval"> <a class="useraccount" href="/account">{{userName}}'s Account</a></p>
 
 
-<h1 class="title"> New Wallet</h1>
-<form class="col-3 col-s-12" action="/newtrip">
-  <button class="waves-effect waves-light btn-large nav-wrapper green lighten-3" >New Trip</button>
-</form>
-<br>
-<br>
-<br>
-<h1 class="title">View history</h1>
-<form class="col-3 col-s-12" action="/newtrip/allTrips">
- <button class="waves-effect waves-light btn-large nav-wrapper green lighten-3" >All Trips</button>
-</form>
+      <p class="interval splitbills"> Split bills.
+        We tell you who owes whom and how to settle debts in groups
+        Click on New Trip or view all trips</p>
 
 
-<template id="liTemplate">
-  {{htmlTemplate 'allTrips'}}
-</template>
-</div>
+      <form class="acc-btn col-3 col-s-12" action="/newtrip">
+        <button class="waves-effect waves-light btn-large nav-wrapper green lighten-3">New Trip</button>
+      </form>
 
-</div>
+      <form class="acc-btn col-3 col-s-12" action="/newtrip/allTrips">
+        <button class="waves-effect waves-light btn-large nav-wrapper green lighten-3">All Trips</button>
+      </form>
+
+
+      <template id="liTemplate">
+        {{htmlTemplate 'allTrips'}}
+      </template>
+    </div>
+
+  </div>
 </div>
 </div>
