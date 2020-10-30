@@ -1,9 +1,9 @@
-<h2>This is how you traveled:</h2>
+<h2 class="all-trips-title">This is where you traveled:</h2>
 
 {{#each allTrips}}
 <h3>
-  <li id="list" class="list-item col-1-2">
-    <a class="big fancy-text light-link" href="/newtrip/{{this.id}}">{{this.name}}</a> <br />
-  </li>
+  <p id="list" class="list-od-trips list-item col-1-2">
+    <a class="trips-a big fancy-text light-link" href="/newtrip/{{this.id}}">{{this.name}}</a> <br />
+  </p>
 </h3>
 {{/each}}
