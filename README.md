@@ -5,4 +5,4 @@
 
 ### Travel Budget
 
-### Technologies used: JavaScript, MongoDB, NodeJS, ExpressJS, Handlebars, Material -UI REST AP
+### Technologies used: JavaScript, MongoDB, NodeJS, ExpressJS, Handlebars, Material-UI, REST API
