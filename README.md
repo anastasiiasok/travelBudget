@@ -6,12 +6,12 @@ createdb
 run npm run seed to seed this database
 
 ### Starting up (dev)
-npm install
-npm run start-dev
+-npm install
+-npm run start-dev
 
 ### Starting up (non-dev)
-npm install
-npm start
+-npm install
+-npm start
 
 ### Technologies used: JavaScript, MongoDB, NodeJS, ExpressJS, Handlebars, Material-UI, REST API
 <p align="center">
