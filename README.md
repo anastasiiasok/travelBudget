@@ -13,7 +13,7 @@ npm run start-dev
 npm install
 npm start
 
-### Technologies used: JavaScript, MongoDB, NodeJS, ExpressJS, Handlebars, Material-UI, REST API
+### Technologies used: JavaScript, MongoDB, NodeJS, ExpressJS, Handlebars, Material-UI, Nodemailer, REST API
 <p align="center">
   <img width="460" height="300" src="https://github.com/anastasiiasok/travelBudget/blob/main/public/ourapp.png">
 </p>
