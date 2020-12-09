@@ -6,14 +6,14 @@ Travel Budget is web application is developed to help people plan a better vacat
 Whether you're traveling on a shoestring budget, or looking to splurge on a luxury resort, our website will help you understand how to get the most for your money by make a budget and truck expenses.
 
 <p align="center">
-  <img width="700" height="400" src="https://github.com/anastasiiasok/travelBudget/blob/main/Screen%20Shot%202020-12-10%20at%201.44.46%20AM.png">
+  <img width="400" height="350" src="https://github.com/anastasiiasok/travelBudget/blob/main/Screen%20Shot%202020-12-10%20at%201.44.46%20AM.png">
 </p>
 
 
 ### Bcrypt registration with a password-hashing function :
 
 <p align="center">
-  <img width="700" height="450" src="https://github.com/anastasiiasok/travelBudget/blob/main/login.png">
+  <img width="400" height="550" src="https://github.com/anastasiiasok/travelBudget/blob/main/login.png">
 </p>
 
 
