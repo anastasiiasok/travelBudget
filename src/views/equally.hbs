@@ -1,28 +1,29 @@
+<div class="container">
+  <div class="row">
 
-<div class="container"> 
-<div class="row"> 
-
-<div class="col-s-12"> 
+    <div class="col-s-12">
 
 
-<h2 class="giveitaname useraccount">Category {{categoryName}} successfully saved!</h2> <br />
- {{!-- <div class="d-flex justify-content-center">
-  <a href="/newtrip/category/editCategory" class="payers giveitaname useraccount">Edit this category</a>
-  <br> --}}
-  {{!-- <a href="/newtrip/category giveitaname useraccount" class="payers giveitaname useraccount">Add New Category</a> <br />
-</div> <br />  --}}
+      <h2 class="giveitaname useraccount">Category {{categoryName}} successfully saved!</h2> <br />
+      <div class="d-flex justify-content-center">
+        {{!-- <a href="/newtrip/category/editCategory" class="payers giveitaname useraccount">Edit this category</a> --}}
 
-<h3 class="giveitaname useraccount title">
-  {{#each payers}}
-  <span class="entry-date block font-3-4 c-lt-gray"> Name:{{this}} </span>
-  {{/each}}
+        <br>
+        <a href="/newtrip/category" class="payers giveitaname useraccount">Add New Category</a>
+        <br />
+      </div> <br />
 
-  <a class="totalspent giveitaname useraccount"> <br>
-  Each Owns $ {{payerCost}}</a> <br />
-</h3>
+      <h3 class="giveitaname useraccount title">
+        {{#each payers}}
+        <span class="entry-date block font-3-4 c-lt-gray"> Name:{{this}} </span>
+        {{/each}}
 
+        <a class="totalspent giveitaname useraccount"> <br>
+          Each Owns $ {{payerCost}}</a> <br />
+      </h3>
+
+
+    </div>
+  </div>
 
 </div>
-</div>
-
- </div>
