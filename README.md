@@ -13,7 +13,7 @@ Whether you're traveling on a shoestring budget, or looking to splurge on a luxu
 ### Bcrypt registration with a password-hashing function :
 
 <p align="center">
-  <img width="400" height="550" src="https://github.com/anastasiiasok/travelBudget/blob/main/login.png">
+  <img width="150" height="250" src="https://github.com/anastasiiasok/travelBudget/blob/main/login.png">
 </p>
 
 
