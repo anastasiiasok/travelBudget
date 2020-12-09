@@ -23,11 +23,7 @@ Whether you're traveling on a shoestring budget, or looking to splurge on a luxu
 
 ### Team Dynamics:
 * Schedule: 9:30 am - 8 pm
-* Stand-Ups:
-
-9 am 
-2 pm
-6:40pm
+* Stand-Ups: 9 am, 2 pm and 6:40pm
 
 ### Heroku:
 * https://travelbudgetweb.herokuapp.com/
